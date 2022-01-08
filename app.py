@@ -1,3 +1,4 @@
+
 import time
 
 import redis
@@ -20,5 +21,5 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return 'Hello from Jenkins but not from Docker! I have been seen {} times.\n'.format(count)
+    return 'Hello from Jenkins and GIT but not from Docker! I have been seen {} times.\n'.format(count)
 
