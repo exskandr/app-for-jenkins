@@ -19,7 +19,7 @@ sh 'pip install -r app-for-jenkins/requirements.txt'
 }
 stage('test code'){
 steps{
-sh 'docker-compose up'
+sh 'docker-compose --version'
 }
 }
 }
