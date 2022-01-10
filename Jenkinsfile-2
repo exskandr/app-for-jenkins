@@ -1,0 +1,27 @@
+pipeline{
+agent {
+docker {
+image 'python:alpine'
+args '-u root'
+}
+}
+stages{
+stage('Prepare environment'){
+steps{
+sh 'apk add git'
+}
+}
+stage('Clone code from Git repository and setup python env'){
+steps{
+sh 'git clone https://github.com/exskandr/app-for-jenkins.git'
+sh 'pip install -r app-for-jenkins/requirements.txt'
+}
+}
+stage('test code'){
+steps{
+sh 'flask run'
+}
+}
+}
+
+}
