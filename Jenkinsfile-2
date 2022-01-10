@@ -19,7 +19,7 @@ sh 'pip install -r app-for-jenkins/requirements.txt'
 }
 stage('test code'){
 steps{
-sh 'flask run'
+sh 'docker-compose up'
 }
 }
 }
