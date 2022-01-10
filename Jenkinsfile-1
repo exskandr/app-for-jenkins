@@ -1,0 +1,16 @@
+pipeline {
+  agent { label 'Ubunta' }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  stages {
+    stages('Tooling version') {
+       steps {
+          sh '''
+            docker --version
+            docker-compose --version
+          '''
+         }
+       }
+     }
+   }
