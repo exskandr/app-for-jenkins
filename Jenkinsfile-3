@@ -1,4 +1,15 @@
 pipeline {
+options {
+        buildDiscarder(
+            logRotator(
+                artifactDaysToKeepStr: "",
+                artifactNumToKeepStr: "",
+                daysToKeepStr: "",
+                numToKeepStr: "10"
+            )
+        )
+        disableConcurrentBuilds()
+    }
   agent {
   dockerfile true
   }
